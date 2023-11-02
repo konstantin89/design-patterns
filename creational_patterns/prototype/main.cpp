@@ -2,6 +2,15 @@
 #include <string>
 #include <unordered_map>
 
+// Prototype - Creational design pattern
+//
+//      The Prototype Design Pattern is used in C++ to create new 
+//      objects by copying an existing object, known as a prototype, 
+//      rather than creating them from scratch. This pattern is particularly 
+//      useful when the cost of object creation is more expensive in terms 
+//      of time and resources, and you want to create new objects that are 
+//      similar to existing ones
+
 // Step 1: Define the Document Prototype Interface
 class DocumentPrototype 
 {
@@ -80,21 +89,21 @@ public:
     DocumentTemplateRegistry()
     {
         // Initialize the registry with default document prototypes
-        registry_["letter"] = new Letter();
-        registry_["report"] = new Report();
+        mRegistry["letter"] = new Letter();
+        mRegistry["report"] = new Report();
     }
 
     DocumentPrototype* getPrototype(const std::string& type) const 
     {
-        auto it = registry_.find(type);
-        if (it != registry_.end()) {
+        auto it = mRegistry.find(type);
+        if (it != mRegistry.end()) {
             return it->second->clone();
         }
         return nullptr; // Prototype not found
     }
 
 private:
-    std::unordered_map<std::string, DocumentPrototype*> registry_;
+    std::unordered_map<std::string, DocumentPrototype*> mRegistry;
 };
 
 int main() 

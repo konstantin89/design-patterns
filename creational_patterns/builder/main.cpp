@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 
+// The Builder Design Pattern is a creational design pattern 
+// that is used to construct complex objects step by step. 
+
 // Step 1: Define the Vehicle class
 class Vehicle 
 {
